@@ -86,7 +86,6 @@
       font-weight: 500;
     }
 
-    /* 📸 FOTOS */
     .fotos {
       display: flex;
       justify-content: center;
@@ -154,7 +153,7 @@
       color: #fff;
       padding: 5px 10px;
       border-radius: 10px;
-      display: block;  /* Alterado para display block, para os nomes ficarem um abaixo do outro */
+      display: block;
       margin: 3px 0;
       font-size: 0.75rem;
     }
@@ -176,7 +175,6 @@
 
 <body>
 
-  <!-- DECORAÇÕES -->
   <div class="decoracao arvore-esq">🎄</div>
   <div class="decoracao arvore-dir">🎄</div>
   <div class="decoracao boneco-neve">⛄</div>
@@ -187,7 +185,6 @@
       <span>Natal Azul & Branco</span>
     </h1>
 
-    <!-- FOTOS -->
     <div class="fotos">
       <img src="minhafoto.jpg" alt="Minha foto">
     </div>
@@ -215,12 +212,11 @@
     <hr>
 
     <h2>Turnos salvos</h2>
-
     <div id="area-foto">
       <div id="lista-turnos"></div>
     </div>
 
-    <button class="btn-img" onclick="gerarImagem()">📸 Gerar imagem para WhatsApp</button>
+    <button class="btn-img" onclick="gerarImagem()">📸 Baixar imagem JPG</button>
   </div>
 
   <script>
@@ -266,9 +262,9 @@
     function gerarImagem() {
       html2canvas(document.getElementById("area-foto"), { scale: 2 }).then(canvas => {
         const link = document.createElement("a");
-        link.download = "turnos-natal-azul.png";
-        link.href = canvas.toDataURL("image/png");
-        link.click();  // Simula o clique no link para download
+        link.download = "turnos-natal-azul.jpg";  // baixar em JPG
+        link.href = canvas.toDataURL("image/jpeg", 0.9); // formato JPEG
+        link.click();
       });
     }
 
