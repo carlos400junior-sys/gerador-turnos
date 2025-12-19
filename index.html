@@ -154,7 +154,7 @@
       color: #fff;
       padding: 5px 10px;
       border-radius: 10px;
-      display: block;
+      display: block;  /* Alterado para display block, para os nomes ficarem um abaixo do outro */
       margin: 3px 0;
       font-size: 0.75rem;
     }
@@ -266,14 +266,9 @@
     function gerarImagem() {
       html2canvas(document.getElementById("area-foto"), { scale: 2 }).then(canvas => {
         const link = document.createElement("a");
-        link.download = "turnos-natal-azul.jpg";  // Alterando o nome para ".jpg"
-        link.href = canvas.toDataURL("image/jpeg");  // Mudando para JPG
-
-        // Criar link para WhatsApp com o texto e o link da imagem
-        const whatsappLink = `https://wa.me/?text=Confira%20meus%20turnos%20de%20descanso%20natalinos:%20${encodeURIComponent(link.href)}`;
-
-        // Redireciona para WhatsApp
-        window.open(whatsappLink, "_blank");
+        link.download = "turnos-natal-azul.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();  // Simula o clique no link para download
       });
     }
 
