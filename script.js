@@ -87,6 +87,17 @@ function atualizarSaudacao() {
         titulo.innerHTML = `${saudacao} • Natal Azul & Branco`;
     }
 }
+const musica = document.getElementById("musicaNatal");
+const botaoMusica = document.getElementById("btnMusica");
+
+botaoMusica.addEventListener("click", () => {
+  musica.volume = 0.4;
+  musica.play().catch(err => {
+    console.log("Erro ao tocar:", err);
+  });
+  botaoMusica.style.display = "none";
+});
+
 
 // Executa a função assim que a página carregar
 window.onload = atualizarSaudacao;
