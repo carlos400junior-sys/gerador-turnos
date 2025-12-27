@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  
   <meta charset="UTF-8">
   <title>❄️ Turnos de Descanso</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,171 +10,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+   
+  <!-- html2canvas --><!-- No seu <head> -->
 
-  <!-- html2canvas -->
+<script src="script.js" defer></script>
+
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<link rel="stylesheet" href="style.css">
 
-  <style>
-    * { box-sizing: border-box; }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(180deg, #0b3c5d, #1e81b0);
-      padding: 15px;
-      min-height: 100vh;
-      overflow-x: hidden;
-      color: #033649;
-    }
-
-    /* ❄️ NEVE */
-    .neve {
-      position: fixed;
-      top: -10px;
-      color: #fff;
-      pointer-events: none;
-      animation: cair linear infinite;
-      z-index: 9999;
-      opacity: 0.9;
-    }
-
-    @keyframes cair {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(110vh); opacity: 0.2; }
-    }
-
-    /* 🎄 DECORAÇÕES */
-    .decoracao {
-      position: fixed;
-      z-index: 5;
-      opacity: 0.95;
-    }
-
-    .arvore-esq { bottom: 10px; left: 10px; font-size: 2.4rem; }
-    .arvore-dir { bottom: 10px; right: 10px; font-size: 2.4rem; }
-    .boneco-neve { bottom: 70px; right: 15px; font-size: 3rem; }
-    .papai-noel { bottom: 70px; left: 15px; font-size: 3rem; animation: acenar 2.5s ease-in-out infinite; }
-
-    @keyframes acenar {
-      0% { transform: rotate(0deg); }
-      25% { transform: rotate(8deg); }
-      50% { transform: rotate(0deg); }
-      75% { transform: rotate(-8deg); }
-      100% { transform: rotate(0deg); }
-    }
-
-    .container {
-      max-width: 420px;
-      margin: auto;
-      background: #ffffff;
-      padding: 18px;
-      border-radius: 20px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.25);
-      position: relative;
-      z-index: 10;
-    }
-
-    h1 {
-      text-align: center;
-      color: #1e81b0;
-      font-size: 1.6rem;
-      font-weight: 700;
-    }
-
-    h1 span {
-      display: block;
-      font-size: 0.85rem;
-      color: #0b3c5d;
-      font-weight: 500;
-    }
-
-    .fotos {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin: 10px 0 15px;
-    }
-
-    .fotos img {
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #1e81b0;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.18);
-    }
-
-    label {
-      font-size: 0.85rem;
-      font-weight: 500;
-      margin-top: 12px;
-      display: block;
-    }
-
-    input {
-      width: 100%;
-      padding: 11px;
-      border-radius: 12px;
-      border: 1px solid #cce6f4;
-      margin-top: 5px;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    button {
-      width: 100%;
-      padding: 12px;
-      border: none;
-      border-radius: 14px;
-      font-weight: 600;
-      margin-top: 10px;
-      cursor: pointer;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    .btn-add { background: #1e81b0; color: #fff; }
-    .btn-secondary { background: #0b3c5d; color: #fff; }
-    .btn-img { background: #25d366; color: #fff; margin-top: 15px; }
-
-    .turno {
-      margin-top: 12px;
-      padding: 14px;
-      background: linear-gradient(135deg, #eaf6fc, #ffffff);
-      border-left: 6px solid #1e81b0;
-      border-radius: 16px;
-      font-size: 0.85rem;
-    }
-
-    .turno-info {
-      font-weight: 600;
-      color: #0b3c5d;
-      margin-bottom: 6px;
-    }
-
-    .nomes div {
-      background: #1e81b0;
-      color: #fff;
-      padding: 5px 10px;
-      border-radius: 10px;
-      display: block;
-      margin: 3px 0;
-      font-size: 0.75rem;
-    }
-
-    #area-foto {
-      background: #ffffff;
-      padding: 10px;
-      border-radius: 14px;
-    }
-
-    hr {
-      border: none;
-      height: 1px;
-      background: #d9ecf7;
-      margin: 15px 0;
-    }
-  </style>
+  
 </head>
 
-<body>
+<body> 
+   
 
   <div class="decoracao arvore-esq">🎄</div>
   <div class="decoracao arvore-dir">🎄</div>
@@ -208,7 +57,7 @@
     <input type="number" id="turno" min="1">
 
     <button class="btn-add" onclick="adicionarTurno()">🎄 Adicionar turno</button>
-
+    <button class="btn-add" onclick="limpar()">limpar</button>
     <hr>
 
     <h2>Turnos salvos</h2>
@@ -219,68 +68,7 @@
     <button class="btn-img" onclick="gerarImagem()">📸 Baixar imagem JPG</button>
   </div>
 
-  <script>
-    const inicioEl = document.getElementById("inicio");
-    const fimEl = document.getElementById("fim");
-    const dataEl = document.getElementById("data");
-    const turnoEl = document.getElementById("turno");
-    const listaTurnos = document.getElementById("lista-turnos");
-    const nomesContainer = document.getElementById("nomes-container");
-
-    function adicionarNome() {
-      const input = document.createElement("input");
-      input.type = "text";
-      input.className = "nome";
-      input.placeholder = "Outro nome";
-      input.style.marginTop = "6px";
-      nomesContainer.appendChild(input);
-    }
-
-    function adicionarTurno() {
-      const nomes = [...document.querySelectorAll(".nome")]
-        .map(n => n.value.trim())
-        .filter(Boolean);
-
-      if (!nomes.length || !inicioEl.value || !fimEl.value || !dataEl.value || !turnoEl.value) {
-        alert("Preencha todos os campos");
-        return;
-      }
-
-      const div = document.createElement("div");
-      div.className = "turno";
-      div.innerHTML = `
-        <div class="turno-info">❄️ Turno ${turnoEl.value} • ${new Date(dataEl.value).toLocaleDateString("pt-BR")}</div>
-        <div class="nomes">${nomes.map(n => `<div>${n}</div>`).join("")}</div>
-        <div>🕒 ${inicioEl.value} às ${fimEl.value}</div>
-      `;
-      listaTurnos.appendChild(div);
-
-      nomesContainer.innerHTML = '<input type="text" class="nome" placeholder="Ex: Carla Fabiana">';
-      inicioEl.value = fimEl.value = dataEl.value = turnoEl.value = "";
-    }
-
-    function gerarImagem() {
-      html2canvas(document.getElementById("area-foto"), { scale: 2 }).then(canvas => {
-        const link = document.createElement("a");
-        link.download = "turnos-natal-azul.jpg";  // baixar em JPG
-        link.href = canvas.toDataURL("image/jpeg", 0.9); // formato JPEG
-        link.click();
-      });
-    }
-
-    function criarNeve() {
-      const floco = document.createElement("div");
-      floco.classList.add("neve");
-      floco.innerHTML = "❄";
-      floco.style.left = Math.random() * window.innerWidth + "px";
-      floco.style.fontSize = Math.random() * 12 + 10 + "px";
-      floco.style.animationDuration = Math.random() * 5 + 5 + "s";
-      document.body.appendChild(floco);
-      setTimeout(() => floco.remove(), 10000);
-    }
-
-    setInterval(criarNeve, 300);
-  </script>
+  
 
 </body>
 </html>
